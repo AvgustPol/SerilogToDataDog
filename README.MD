@@ -101,3 +101,60 @@ The program '[16376] ConsoleApp-NetCore.exe' has exited with code 0 (0x0).
 ## [ Proof 2/2 - NetFramework ] with File sink 
 
 Exact same result as NetCore - logs were created in the file, but **SerilogDebug.txt** is empty 
+
+
+### Issue 3 - serilog is not sending logs to the datadog
+
+I tried added 1 basic DataDog logger 
+
+        public static Logger CreateDataDogLogger()
+        {
+            return new LoggerConfiguration()
+                .WriteTo.DatadogLogs(_apiKey)
+                .CreateLogger();
+        }
+
+and brute force all combinations of documented settings 
+
+            List<Logger> loggers = new List<Logger>();
+            List<int> allPorts = new List<int>() { 443, 1883, 10516 };
+            List<string> allEndpoints = new List<string>()
+            {
+                "agent-intake.logs.datadoghq.eu",
+                "agent-http-intake.logs.datadoghq.eu",
+                "http-intake.logs.datadoghq.eu",
+                "tcp-intake.logs.datadoghq.eu",
+                "lambda-intake.logs.datadoghq.eu",
+                "lambda-http-intake.logs.datadoghq.eu",
+                "functions-intake.logs.datadoghq.eu"
+            };
+            List<bool> boolFlags = new List<bool>() { true, false };
+
+            loggers.Add(CreateDataDogLogger());
+
+            foreach (string endpoint in allEndpoints)
+            {
+                foreach (int port in allPorts)
+                {
+                    foreach (bool boolFlag1 in boolFlags)
+                    {
+                        foreach (bool boolFlag2 in boolFlags)
+                        {
+                            loggers.Add(CreateDataDogLoggerOverride(endpoint, port, boolFlag1, boolFlag2));
+                        }
+                    }
+                }
+            }
+
+            foreach (var logger in loggers)
+            {
+                logger.Warning($"Agentless test succeeded.");
+                logger.Information($"Agentless test succeeded.");
+                logger.Error($"Agentless test succeeded.");
+                logger.Fatal($"Agentless test succeeded.");
+            }
+
+as a result - list of 85 loggers, that are sending 4 different level of logs and nothing in out DataDog app. 
+
+
+
