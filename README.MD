@@ -11,16 +11,34 @@ This solution was created to demonstrate issue with serilog agentless sending lo
 ## Documentation: asking to use 'url' parameter for the LoggerConfiguration
 ![Documentation - LoggerConfiguration doesn't have url parameter named 'url'](https://github.com/AvgustPol/SerilogToDataDog/blob/master/img/%5B%20Documentation%20%5D%20LoggerConfiguration%20doesn't%20have%20url%20parameter%20named%20'url'.png?raw=true)
 
+Code: 
+
+NetCore
+https://github.com/AvgustPol/SerilogToDataDog/blob/master/ConsoleApp-NetCore/Program.cs#L43
+
+NetFramework
+https://github.com/AvgustPol/SerilogToDataDog/blob/master/ConsoleApp-NetFramework/Program.cs#L43
+
 ## 1/2 Proof it's impossible - NetCore 
+
 ![Proof - NetFramework - LoggerConfiguration doesn't have url parameter named 'url'](https://github.com/AvgustPol/SerilogToDataDog/blob/master/img/%5B%20NetCore%20%5D%20LoggerConfiguration%20doesn't%20have%20url%20parameter%20named%20'url'.png?raw=true)
 
-## 2/2 Proof it's impossible - NetFramework 
+## 2/2 Proof it's impossible - NetFramework
+
 ![Proof - NetFramework - LoggerConfiguration doesn't have url parameter named 'url'](https://github.com/AvgustPol/SerilogToDataDog/blob/master/img/%5B%20NetFramework%20%5D%20LoggerConfiguration%20doesn't%20have%20url%20parameter%20named%20'url'.png?raw=true)
 
 --- 
 # Issue 2 - Selflog is not working  
 There are ZERO debug self logs from serilog.  Logs were created in the local file, but **SerilogDebug.txt** is empty. 
 
+
+Code: 
+
+NetCore
+https://github.com/AvgustPol/SerilogToDataDog/blob/master/ConsoleApp-NetCore/Program.cs#L69
+
+NetFramework
+https://github.com/AvgustPol/SerilogToDataDog/blob/master/ConsoleApp-NetFramework/Program.cs#L69
 
 ## Code
 
@@ -104,6 +122,14 @@ Exact same result as NetCore - logs were created in the file, but **SerilogDebug
 
 
 ### Issue 3 - serilog is not sending logs to the datadog
+
+Code: 
+
+NetCore
+https://github.com/AvgustPol/SerilogToDataDog/blob/master/ConsoleApp-NetCore/Program.cs#L69
+
+NetFramework
+https://github.com/AvgustPol/SerilogToDataDog/blob/master/ConsoleApp-NetFramework/Program.cs#L69
 
 I tried added 1 basic DataDog logger 
 
