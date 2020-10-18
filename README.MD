@@ -19,7 +19,8 @@ This solution was created to demonstrate issue with serilog agentless sending lo
 
 --- 
 # Issue 2 - Selflog is not working  
-There are ZERO debug self logs from serilog. 
+There are ZERO debug self logs from serilog.  Logs were created in the local file, but **SerilogDebug.txt** is empty. 
+
 
 ## Code
 
@@ -95,4 +96,8 @@ The program '[16376] ConsoleApp-NetCore.exe' has exited with code 0 (0x0).
 	{"Timestamp":"2020-10-18T18:28:04.9960650+02:00","Level":"Information","MessageTemplate":"Issue 2 [ConsoleApp-NetCore] POC info - 18:28:04","RenderedMessage":"Issue 2 [ConsoleApp-NetCore] POC info - 18:28:04","Properties":{"ThreadId":1,"MachineName":"NSX-WKS-002"}}
 	{"Timestamp":"2020-10-18T18:28:04.9962302+02:00","Level":"Error","MessageTemplate":"Issue 2 [ConsoleApp-NetCore] POC info - 18:28:04","RenderedMessage":"Issue 2 [ConsoleApp-NetCore] POC info - 18:28:04","Properties":{"ThreadId":1,"MachineName":"NSX-WKS-002"}}
 	{"Timestamp":"2020-10-18T18:28:04.9973622+02:00","Level":"Fatal","MessageTemplate":"Issue 2 [ConsoleApp-NetCore] POC info - 18:28:04","RenderedMessage":"Issue 2 [ConsoleApp-NetCore] POC info - 18:28:04","Properties":{"ThreadId":1,"MachineName":"NSX-WKS-002"}}
+	
+	
+## [ Proof 2/2 - NetFramework ] with File sink 
 
+Exact same result as NetCore - logs were created in the file, but **SerilogDebug.txt** is empty 
