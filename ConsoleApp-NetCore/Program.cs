@@ -1,10 +1,4 @@
-﻿using Serilog;
-using Serilog.Formatting.Json;
-using System;
-using System.Diagnostics;
-using System.IO;
-
-namespace ConsoleApp_NetCore
+﻿namespace ConsoleApp_NetCore
 {
     internal class Program
     {
@@ -25,31 +19,37 @@ namespace ConsoleApp_NetCore
 
             #endregion Issue 1 - LoggerConfiguration doesn't have url parameter named 'url'
 
-            #region Issues 2 - SelfLog is not working
+            #region Issue 2 - SelfLog is not working (File sink)
 
-            var file = File.CreateText(HARDCODED_SERILOGDEBUG_LOCATION);
+            //var file = File.CreateText(HARDCODED_SERILOGDEBUG_LOCATION);
 
-            Serilog.Debugging.SelfLog.Enable(TextWriter.Synchronized(file));
-            Serilog.Debugging.SelfLog.Enable(msg => Debug.WriteLine(msg));
-            Serilog.Debugging.SelfLog.Enable(Console.Error);
-            Serilog.Debugging.SelfLog.Enable(msg => Console.WriteLine(msg));
+            //Serilog.Debugging.SelfLog.Enable(TextWriter.Synchronized(file));
+            //Serilog.Debugging.SelfLog.Enable(msg => Debug.WriteLine(msg));
+            //Serilog.Debugging.SelfLog.Enable(Console.Error);
+            //Serilog.Debugging.SelfLog.Enable(msg => Console.WriteLine(msg));
 
-            ILogger logger = new LoggerConfiguration()
-                .WriteTo
-                .File(new JsonFormatter(renderMessage: true), HARDCODED_LOGS_LOCATION)
-                .Enrich.WithThreadId()
-                .Enrich.WithMachineName()
-                .Enrich.FromLogContext()
-                .CreateLogger();
+            //ILogger logger = new LoggerConfiguration()
+            //    .WriteTo
+            //    .File(new JsonFormatter(renderMessage: true), HARDCODED_LOGS_LOCATION)
+            //    .Enrich.WithThreadId()
+            //    .Enrich.WithMachineName()
+            //    .Enrich.FromLogContext()
+            //    .CreateLogger();
 
-            string message = $"Issue 2 [ConsoleApp-NetCore] POC info - {DateTime.Now.ToLongTimeString()}";
+            //string message = $"Issue 2 [ConsoleApp-NetCore] POC info - {DateTime.Now.ToLongTimeString()}";
 
-            logger.Warning(message);
-            logger.Information(message);
-            logger.Error(message);
-            logger.Fatal(message);
+            //logger.Warning(message);
+            //logger.Information(message);
+            //logger.Error(message);
+            //logger.Fatal(message);
 
-            #endregion Issues 2 - SelfLog is not working
+            #endregion Issue 2 - SelfLog is not working (File sink)
+
+            #region Issue 3 - sending to the datadog is not working
+
+            // issue
+
+            #endregion Issue 3 - sending to the datadog is not working
         }
 
         //private static void Main(string[] args)
