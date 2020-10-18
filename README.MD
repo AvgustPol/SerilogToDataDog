@@ -18,21 +18,19 @@ This solution was created to demonstrate issue with serilog agentless sending lo
 ![Proof - NetFramework - LoggerConfiguration doesn't have url parameter named 'url'](https://github.com/AvgustPol/SerilogToDataDog/blob/master/img/%5B%20NetFramework%20%5D%20LoggerConfiguration%20doesn't%20have%20url%20parameter%20named%20'url'.png?raw=true)
 
 --- 
-
 # Issue 2 - Selflog is not working  
 There are ZERO debug self logs from serilog. 
 
-Usings:
+## Code
 
-`using Serilog;   
+``using Serilog;   
 using Serilog.Formatting.Json;   
 using System;   
 using System.Diagnostics;    
 using System.IO;   
-`
-
-Code snippet:
-`var file = File.CreateText(HARDCODED_SERILOGDEBUG_LOCATION);
+``
+``
+var file = File.CreateText(HARDCODED_SERILOGDEBUG_LOCATION);
 
             Serilog.Debugging.SelfLog.Enable(TextWriter.Synchronized(file));
             Serilog.Debugging.SelfLog.Enable(msg => Debug.WriteLine(msg));
@@ -52,7 +50,7 @@ Code snippet:
             logger.Warning(message);
             logger.Information(message);
             logger.Error(message);
-            logger.Fatal(message);`  
+            logger.Fatal(message);``
 
 
 
@@ -65,7 +63,7 @@ Code snippet:
 
 #### Output 
 
-`
+``
 'ConsoleApp-NetCore.exe' (CoreCLR: DefaultDomain): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.7\System.Private.CoreLib.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
 'ConsoleApp-NetCore.exe' (CoreCLR: clrhost): Loaded 'C:\Users\Anton Vlasiuk\source\repos\SerilogToDataDog\ConsoleApp-NetCore\bin\Debug\netcoreapp3.1\ConsoleApp-NetCore.dll'. Symbols loaded.
 'ConsoleApp-NetCore.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.7\System.Runtime.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
@@ -86,7 +84,7 @@ Code snippet:
 'ConsoleApp-NetCore.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.7\System.Linq.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
 'ConsoleApp-NetCore.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.7\System.Private.Uri.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
 The program '[16376] ConsoleApp-NetCore.exe' has exited with code 0 (0x0).
-`
+``
 
 ### Logged data 
 ![](https://github.com/AvgustPol/SerilogToDataDog/blob/master/img/Selflog%20is%20not%20working/%5B%20Selflog%20is%20not%20working%20%5D%20%5B%20NetCore%20%5D%20selflog%20+%20logspng.png?raw=true)
