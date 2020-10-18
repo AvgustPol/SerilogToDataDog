@@ -1,4 +1,8 @@
-﻿namespace ConsoleApp_NetFramework
+﻿using System;
+using System.Diagnostics;
+using System.IO;
+
+namespace ConsoleApp_NetFramework
 {
     internal class Program
     {
@@ -7,6 +11,13 @@
 
         private static void Main(string[] args)
         {
+            var file = File.CreateText(HARDCODED_SERILOGDEBUG_LOCATION);
+
+            Serilog.Debugging.SelfLog.Enable(TextWriter.Synchronized(file));
+            Serilog.Debugging.SelfLog.Enable(msg => Debug.WriteLine(msg));
+            Serilog.Debugging.SelfLog.Enable(Console.Error);
+            Serilog.Debugging.SelfLog.Enable(msg => Console.WriteLine(msg));
+
             #region Issue 1 - LoggerConfiguration doesn't have url parameter named 'url'
 
             ////Documentation reference:
