@@ -23,13 +23,13 @@ There are ZERO debug self logs from serilog.
 
 ## Code
 
-``using Serilog;   
-using Serilog.Formatting.Json;   
-using System;   
-using System.Diagnostics;    
-using System.IO;``  
+            using Serilog;   
+            using Serilog.Formatting.Json;   
+            using System;   
+            using System.Diagnostics;    
+            using System.IO;``  
 
-``  var file = File.CreateText(HARDCODED_SERILOGDEBUG_LOCATION);   
+            var file = File.CreateText(HARDCODED_SERILOGDEBUG_LOCATION);   
    
             Serilog.Debugging.SelfLog.Enable(TextWriter.Synchronized(file));
             Serilog.Debugging.SelfLog.Enable(msg => Debug.WriteLine(msg));
@@ -81,7 +81,7 @@ using System.IO;``
 'ConsoleApp-NetCore.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.7\System.IO.FileSystem.Primitives.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
 'ConsoleApp-NetCore.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.7\System.Linq.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
 'ConsoleApp-NetCore.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.7\System.Private.Uri.dll'. Skipped loading symbols. Module is optimized and the debugger option 'Just My Code' is enabled.
-The program '[16376] ConsoleApp-NetCore.exe' has exited with code 0 (0x0).``  
+The program '[16376] ConsoleApp-NetCore.exe' has exited with code 0 (0x0).
 
 ### Logged data 
 ![](https://github.com/AvgustPol/SerilogToDataDog/blob/master/img/Selflog%20is%20not%20working/%5B%20Selflog%20is%20not%20working%20%5D%20%5B%20NetCore%20%5D%20selflog%20+%20logspng.png?raw=true)
@@ -90,9 +90,9 @@ The program '[16376] ConsoleApp-NetCore.exe' has exited with code 0 (0x0).``
 100% empty 
 
 #### SerilogDebug.txt
-`
-{"Timestamp":"2020-10-18T18:28:04.9865812+02:00","Level":"Warning","MessageTemplate":"Issue 2 [ConsoleApp-NetCore] POC info - 18:28:04","RenderedMessage":"Issue 2 [ConsoleApp-NetCore] POC info - 18:28:04","Properties":{"ThreadId":1,"MachineName":"NSX-WKS-002"}}
-{"Timestamp":"2020-10-18T18:28:04.9960650+02:00","Level":"Information","MessageTemplate":"Issue 2 [ConsoleApp-NetCore] POC info - 18:28:04","RenderedMessage":"Issue 2 [ConsoleApp-NetCore] POC info - 18:28:04","Properties":{"ThreadId":1,"MachineName":"NSX-WKS-002"}}
-{"Timestamp":"2020-10-18T18:28:04.9962302+02:00","Level":"Error","MessageTemplate":"Issue 2 [ConsoleApp-NetCore] POC info - 18:28:04","RenderedMessage":"Issue 2 [ConsoleApp-NetCore] POC info - 18:28:04","Properties":{"ThreadId":1,"MachineName":"NSX-WKS-002"}}
-{"Timestamp":"2020-10-18T18:28:04.9973622+02:00","Level":"Fatal","MessageTemplate":"Issue 2 [ConsoleApp-NetCore] POC info - 18:28:04","RenderedMessage":"Issue 2 [ConsoleApp-NetCore] POC info - 18:28:04","Properties":{"ThreadId":1,"MachineName":"NSX-WKS-002"}}
-`
+
+            {"Timestamp":"2020-10-18T18:28:04.9865812+02:00","Level":"Warning","MessageTemplate":"Issue 2 [ConsoleApp-NetCore] POC info - 18:28:04","RenderedMessage":"Issue 2 [ConsoleApp-NetCore] POC info - 18:28:04","Properties":{"ThreadId":1,"MachineName":"NSX-WKS-002"}}
+            {"Timestamp":"2020-10-18T18:28:04.9960650+02:00","Level":"Information","MessageTemplate":"Issue 2 [ConsoleApp-NetCore] POC info - 18:28:04","RenderedMessage":"Issue 2 [ConsoleApp-NetCore] POC info - 18:28:04","Properties":{"ThreadId":1,"MachineName":"NSX-WKS-002"}}
+            {"Timestamp":"2020-10-18T18:28:04.9962302+02:00","Level":"Error","MessageTemplate":"Issue 2 [ConsoleApp-NetCore] POC info - 18:28:04","RenderedMessage":"Issue 2 [ConsoleApp-NetCore] POC info - 18:28:04","Properties":{"ThreadId":1,"MachineName":"NSX-WKS-002"}}
+            {"Timestamp":"2020-10-18T18:28:04.9973622+02:00","Level":"Fatal","MessageTemplate":"Issue 2 [ConsoleApp-NetCore] POC info - 18:28:04","RenderedMessage":"Issue 2 [ConsoleApp-NetCore] POC info - 18:28:04","Properties":{"ThreadId":1,"MachineName":"NSX-WKS-002"}}
+
