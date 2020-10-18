@@ -35,10 +35,10 @@ There are ZERO debug self logs from serilog.  Logs were created in the local fil
 Code: 
 
 NetCore
-https://github.com/AvgustPol/SerilogToDataDog/blob/master/ConsoleApp-NetCore/Program.cs#L69
+https://github.com/AvgustPol/SerilogToDataDog/blob/master/ConsoleApp-NetCore/Program.cs#L43
 
 NetFramework
-https://github.com/AvgustPol/SerilogToDataDog/blob/master/ConsoleApp-NetFramework/Program.cs#L69
+https://github.com/AvgustPol/SerilogToDataDog/blob/master/ConsoleApp-NetFramework/Program.cs#L43
 
 ## Code
 
