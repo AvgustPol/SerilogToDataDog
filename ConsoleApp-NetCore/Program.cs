@@ -6,6 +6,12 @@ namespace ConsoleApp_NetCore
 {
     internal class Program
     {
+        private static readonly string _apiKey = "";
+        private static readonly string _source = "serilog-to-datadog-poc";
+        private static readonly string _host = "serilog-to-datadog-poc";
+        private static readonly string _service = "serilog-to-datadog-poc";
+        public static string[] custom_tags = new string[] { "env:develop" };
+
         public const string HARDCODED_SERILOGDEBUG_LOCATION = @"C:\Repos\tmp\LogsTest\SerilogDebug.txt";
         public const string HARDCODED_LOGS_LOCATION = @"C:\Repos\tmp\LogsTest\log.json";
 
