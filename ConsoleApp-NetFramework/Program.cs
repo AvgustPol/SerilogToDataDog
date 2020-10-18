@@ -68,8 +68,6 @@ namespace ConsoleApp_NetFramework
 
             #region Issue 3 - sending to the datadog is not working
 
-            string apiKey = "";
-
             List<Logger> loggers = new List<Logger>();
 
             List<int> allPorts = new List<int>() { 443, 1883, 10516 };
@@ -101,13 +99,13 @@ namespace ConsoleApp_NetFramework
                 }
             }
 
-            loggers.ForEach(x =>
+            foreach (var logger in loggers)
             {
-                x.Warning($"Agentless test succeeded.");
-                x.Information($"Agentless test succeeded.");
-                x.Error($"Agentless test succeeded.");
-                x.Fatal($"Agentless test succeeded.");
-            });
+                logger.Warning($"Agentless test succeeded.");
+                logger.Information($"Agentless test succeeded.");
+                logger.Error($"Agentless test succeeded.");
+                logger.Fatal($"Agentless test succeeded.");
+            }
 
             #endregion Issue 3 - sending to the datadog is not working
         }

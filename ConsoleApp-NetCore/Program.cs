@@ -1,4 +1,8 @@
-﻿using System;
+﻿using Serilog;
+using Serilog.Core;
+using Serilog.Sinks.Datadog.Logs;
+using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 
@@ -10,7 +14,7 @@ namespace ConsoleApp_NetCore
         private static readonly string _source = "serilog-to-datadog-poc";
         private static readonly string _host = "serilog-to-datadog-poc";
         private static readonly string _service = "serilog-to-datadog-poc";
-        public static string[] custom_tags = new string[] { "env:develop" };
+        public static string[] _tags = new string[] { "env:develop" };
 
         public const string HARDCODED_SERILOGDEBUG_LOCATION = @"C:\Repos\tmp\LogsTest\SerilogDebug.txt";
         public const string HARDCODED_LOGS_LOCATION = @"C:\Repos\tmp\LogsTest\log.json";
@@ -64,88 +68,75 @@ namespace ConsoleApp_NetCore
 
             #region Issue 3 - sending to the datadog is not working
 
-            // issue
+            List<Logger> loggers = new List<Logger>();
+
+            List<int> allPorts = new List<int>() { 443, 1883, 10516 };
+            List<string> allEndpoints = new List<string>()
+            {
+                "agent-intake.logs.datadoghq.eu",
+                "agent-http-intake.logs.datadoghq.eu",
+                "http-intake.logs.datadoghq.eu",
+                "tcp-intake.logs.datadoghq.eu",
+                "lambda-intake.logs.datadoghq.eu",
+                "lambda-http-intake.logs.datadoghq.eu",
+                "functions-intake.logs.datadoghq.eu"
+            };
+            List<bool> boolFlags = new List<bool>() { true, false };
+
+            loggers.Add(CreateDataDogLogger());
+
+            foreach (string endpoint in allEndpoints)
+            {
+                foreach (int port in allPorts)
+                {
+                    foreach (bool boolFlag1 in boolFlags)
+                    {
+                        foreach (bool boolFlag2 in boolFlags)
+                        {
+                            loggers.Add(CreateDataDogLoggerOverride(endpoint, port, boolFlag1, boolFlag2));
+                        }
+                    }
+                }
+            }
+
+            foreach (var logger in loggers)
+            {
+                logger.Warning($"Agentless test succeeded.");
+                logger.Information($"Agentless test succeeded.");
+                logger.Error($"Agentless test succeeded.");
+                logger.Fatal($"Agentless test succeeded.");
+            }
 
             #endregion Issue 3 - sending to the datadog is not working
         }
 
-        //private static void Main(string[] args)
-        //{
-        //    //not working
-        //    //Logger logger1 = CreateLogger1("http-intake.logs.datadoghq.eu", custom_apiKey);
+        public static Logger CreateDataDogLogger()
+        {
+            return new LoggerConfiguration()
+                .WriteTo.DatadogLogs(_apiKey)
+                .CreateLogger();
+        }
 
-        //    Logger test1 = InitDataDogLoggerWithoutAppsettings();
-        //    Logger test2 = InitDataDogLoggerOverride();
+        public static Logger CreateDataDogLoggerOverride(string urlParam, int portParam, bool useSSLParam, bool useTCPParam)
+        {
+            var config = new DatadogConfiguration(
+                    url: urlParam,
+                    port: portParam,
+                    useSSL: useSSLParam,
+                    useTCP: useTCPParam);
 
-        //    test1.Information("Successfully configured agentless logging 1");
-        //    test2.Information("Successfully configured agentless logging 1");
-        //}
+            var log = new LoggerConfiguration()
+                .WriteTo.DatadogLogs(
+                    apiKey: _apiKey,
+                    source: _source,
+                    service: _service,
+                    host: _host,
+                    tags: _tags,
+                    configuration: config
+                )
+                .CreateLogger();
 
-        ///// <summary>
-        ///// https://docs.datadoghq.com/logs/log_collection/csharp/?tab=serilog#agentless-logging
-        /////
-        /////
-        ///// </summary>
-        ///// <returns></returns>
-        //private static object CreateLogger1(string urlParam, string apiKey)
-        //{
-        //    Logger log = new LoggerConfiguration(url: urlParam)
-        //        .WriteTo.DatadogLogs("<API_KEY>")
-        //        .CreateLogger();
-
-        //    return log;
-        //}
-
-        //private static Logger InitDataDogLoggerWithoutAppsettings()
-        //{
-        //    string url = "datadoghq.eu";
-
-        //    var config = new DatadogConfiguration(
-        //        url: url,
-        //        port: 443,
-        //        useSSL: true,
-        //        useTCP: true);
-
-        //    var logger = new LoggerConfiguration()
-        //        .WriteTo
-        //        .DatadogLogs(
-        //            apiKey: custom_apiKey,
-        //            source: custom_source,
-        //            service: custom_service,
-        //            host: custom_host,
-        //            tags: custom_tags,
-        //            configuration: config
-        //        )
-        //        .CreateLogger();
-
-        //    return logger;
-        //}
-
-        //private static Logger InitDataDogLoggerOverride()
-        //{
-        //    var config = new DatadogConfiguration(url: "tcp-intake.logs.datadoghq.eu", port: 443, useSSL: true, useTCP: true);
-        //    var log = new LoggerConfiguration()
-        //        .WriteTo.DatadogLogs(
-        //            apiKey: custom_apiKey,
-        //            source: custom_source,
-        //            service: custom_service,
-        //            host: custom_host,
-        //            tags: custom_tags,
-        //            configuration: config
-        //        )
-        //        .CreateLogger();
-
-        //    return log;
-        //}
-
-        //private static Logger InitFileLogger()
-        //{
-        //    var logger = new LoggerConfiguration()
-        //        .WriteTo
-        //        .File(new JsonFormatter(renderMessage: true), HARDCODED_LOGS_LOCATION)
-        //        .CreateLogger();
-
-        //    return logger;
-        //}
+            return log;
+        }
     }
 }
