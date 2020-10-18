@@ -11,10 +11,10 @@ This solution was created to demonstrate issue with serilog agentless sending lo
 ## Documentation: asking to use 'url' parameter for the LoggerConfiguration
 ![Documentation - LoggerConfiguration doesn't have url parameter named 'url'](https://github.com/AvgustPol/SerilogToDataDog/blob/master/img/%5B%20Documentation%20%5D%20LoggerConfiguration%20doesn't%20have%20url%20parameter%20named%20'url'.png?raw=true)
 
-## Proof it's impossible 1/2 - NetCore 
+## 1/2 Proof it's impossible - NetCore 
 ![Proof - NetFramework - LoggerConfiguration doesn't have url parameter named 'url'](https://github.com/AvgustPol/SerilogToDataDog/blob/master/img/%5B%20NetCore%20%5D%20LoggerConfiguration%20doesn't%20have%20url%20parameter%20named%20'url'.png?raw=true)
 
-## Proof it's impossible 2/2 - NetFramework 
+## 2/2 Proof it's impossible - NetFramework 
 ![Proof - NetFramework - LoggerConfiguration doesn't have url parameter named 'url'](https://github.com/AvgustPol/SerilogToDataDog/blob/master/img/%5B%20NetFramework%20%5D%20LoggerConfiguration%20doesn't%20have%20url%20parameter%20named%20'url'.png?raw=true)
 
 --- 
@@ -87,7 +87,7 @@ The program '[16376] ConsoleApp-NetCore.exe' has exited with code 0 (0x0).
 ### Logged data 
 ![](https://github.com/AvgustPol/SerilogToDataDog/blob/master/img/Selflog%20is%20not%20working/%5B%20Selflog%20is%20not%20working%20%5D%20%5B%20NetCore%20%5D%20selflog%20+%20logspng.png?raw=true)
 
-#### Empty log.json
+#### log.json
 100% empty 
 
 #### SerilogDebug.txt
