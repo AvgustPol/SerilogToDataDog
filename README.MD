@@ -14,10 +14,10 @@ This solution was created to demonstrate issue with serilog agentless sending lo
 Code: 
 
 NetCore
-https://github.com/AvgustPol/SerilogToDataDog/blob/master/ConsoleApp-NetCore/Program.cs#L43
+https://github.com/AvgustPol/SerilogToDataDog/blob/master/ConsoleApp-NetCore/Program.cs#L31
 
 NetFramework
-https://github.com/AvgustPol/SerilogToDataDog/blob/master/ConsoleApp-NetFramework/Program.cs#L43
+https://github.com/AvgustPol/SerilogToDataDog/blob/master/ConsoleApp-NetFramework/Program.cs#L31
 
 ## 1/2 Proof it's impossible - NetCore 
 
