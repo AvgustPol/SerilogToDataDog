@@ -156,5 +156,5 @@ and brute force all combinations of documented settings
 
 as a result - list of 85 loggers, that are sending 4 different level of logs and nothing in out DataDog app. 
 
-
+on logs page there is still "Get started with logs" message 
 
