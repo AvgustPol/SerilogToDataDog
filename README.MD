@@ -1,4 +1,9 @@
+# Agentless logging is not working 
+
 This solution was created to demonstrate issue with serilog agentless sending logs to the DataDog 
+
+⚠ WARNING Important: we are using agentless logging, which means we don't have any installed agents - we are using Serilog to send logs from our application to directly the Datadog, and avoiding installing agents on our machines
+
 
 # Projects description:  
 
