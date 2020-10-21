@@ -14,6 +14,9 @@ This solution was created to demonstrate issue with serilog agentless sending lo
 
 # Issue 1 - LoggerConfiguration doesn't have url parameter named 'url'
 ## Documentation: asking to use 'url' parameter for the LoggerConfiguration
+
+Link: https://docs.datadoghq.com/logs/log_collection/csharp/?tab=serilog#agentless-logging
+
 ![Documentation - LoggerConfiguration doesn't have url parameter named 'url'](https://github.com/AvgustPol/SerilogToDataDog/blob/master/img/%5B%20Documentation%20%5D%20LoggerConfiguration%20doesn't%20have%20url%20parameter%20named%20'url'.png?raw=true)
 
 Code: 
