@@ -9,14 +9,44 @@ Datadog, and avoiding installing agents on our machines
 
 Direct link to core problem : [Agentless logging is not working](#issue-3---serilog-c-code-not-the-agent-is-not-sending-logs-to-the-datadog)  
 
+- [Projects description]
+  * [.Net CORE](#sub-heading)
+  * [.Net Framework]()
 - [Issue 1 - LoggerConfiguration doesn't have url parameter named 'url'](#issue-1---loggerconfiguration-doesnt-have-url-parameter-named-url)
 - [Issue 2 - Selflog is not working](#issue-2---selflog-is-not-working)
 - [Issue 3 - serilog C# code (NOT the agent.) is not sending logs to the datadog](#issue-3---serilog-c-code-not-the-agent-is-not-sending-logs-to-the-datadog)
 
 # Projects description:  
 
-**ConsoleApp-NetCore**: .NET CORE 3.1
-**ConsoleApp-NetFramework**: .Net Framework 4.5 
+## **ConsoleApp-NetCore**: .NET CORE 3.1
+
+
+[ Serilog ] Version="2.10.0" 
+[ Serilog.Enrichers.Environment ] Version="2.1.3" 
+[ Serilog.Enrichers.Thread] Version="3.1.0"
+[ Serilog.Enrichers.Thread] Version="3.1.0"
+[ Serilog.Settings.Configuration ] Version="3.1.0"
+[ Serilog.Sinks.Datadog.Logs ] Version="0.3.3"
+[ Serilog.Sinks.Debug ] Version="1.0.1"
+[ Serilog.Sinks.File ] Version="4.1.0"
+[ SerilogAnalyzer ] Version="0.15.0"
+
+Full list you may found in projctect description:  https://github.com/AvgustPol/SerilogToDataDog/blob/master/ConsoleApp-NetCore/ConsoleApp-NetCore.csproj  
+
+## **ConsoleApp-NetFramework**: .Net Framework 4.5 
+Installed packages: 
+
+[ Serilog ] Version="2.10.0" 
+[ Serilog.Enrichers.Environment ] Version="2.1.3" 
+[ Serilog.Enrichers.Thread] Version="3.1.0"
+[ Serilog.Sinks.Datadog.Logs ] Version="0.3.3"
+[ Serilog.Sinks.File ] Version="4.1.0"
+[ Serilog.Sinks.PeriodicBatching ] Version="2.2.0"
+[ SerilogAnalyzer ] Version="0.15.0"
+[ System.Net.Http ] Version="4.3.4"
+[ Newtonsoft.Json ] Version="11.0.2"
+
+Full list you may found in projctect description:  https://github.com/AvgustPol/SerilogToDataDog/blob/master/ConsoleApp-NetFramework/ConsoleApp-NetFramework.csproj  
 
 ---
 
