@@ -2,8 +2,25 @@
 
 This solution was created to demonstrate issue with serilog agentless sending logs to the DataDog 
 
-⚠ WARNING Important: we are using agentless logging, which means we don't have any installed agents - we are using Serilog to send logs from our application to directly the Datadog, and avoiding installing agents on our machines
+⚠ WARNING Important: we are using agentless logging, which means we don't have any installed agents - we are using Serilog to send logs from our application to directly the 
+Datadog, and avoiding installing agents on our machines
 
+## Table of contents
+
+Direct link to core problem : [Agentless logging is not working](issue-3---serilog-is-not-sending-logs-to-the-datadog)  
+
+- [Issue 1 - LoggerConfiguration doesn't have url parameter named 'url'](#issue-1---loggerconfiguration-doesnt-have-url-parameter-named-url)
+- [Issue 2 - Selflog is not working](#issue-2---selflog-is-not-working)
+- [Issue 3 - serilog C# code (NOT the agent.) is not sending logs to the datadog](issue-3---serilog-is-not-sending-logs-to-the-datadog)
+
+Issue 1 - LoggerConfiguration doesn't have url parameter named 'url'
+Url: https://github.com/AvgustPol/SerilogToDataDog#
+
+Issue 2 - Selflog is not working
+Url: https://github.com/AvgustPol/SerilogToDataDog#issue-2---selflog-is-not-working
+
+Issue 3 - Serilog is not sending logs to the datadog
+Url: https://github.com/AvgustPol/SerilogToDataDog#issue-2---selflog-is-not-working
 
 # Projects description:  
 
@@ -164,7 +181,7 @@ Exact same result as NetCore - logs were created in the file, but **SerilogDebug
 
 
 
-### Issue 3 - serilog is not sending logs to the datadog
+### Issue 3 - serilog C# code (NOT the agent.) is not sending logs to the datadog
 
 Code: 
 
