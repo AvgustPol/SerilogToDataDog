@@ -1,4 +1,4 @@
-# [ Issue ] Agentless logging is not working 
+# [ Main issue ] Agentless logging is not working 
 
 This solution was created to demonstrate issue with serilog agentless sending logs to the DataDog 
 
