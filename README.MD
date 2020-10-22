@@ -19,21 +19,26 @@ Link: https://docs.datadoghq.com/logs/log_collection/csharp/?tab=serilog#agentle
 
 ![Documentation - LoggerConfiguration doesn't have url parameter named 'url'](https://github.com/AvgustPol/SerilogToDataDog/blob/master/img/%5B%20Documentation%20%5D%20LoggerConfiguration%20doesn't%20have%20url%20parameter%20named%20'url'.png?raw=true)
 
-Code: 
-
-NetCore
-https://github.com/AvgustPol/SerilogToDataDog/blob/master/ConsoleApp-NetCore/Program.cs#L31
-
-NetFramework
-https://github.com/AvgustPol/SerilogToDataDog/blob/master/ConsoleApp-NetFramework/Program.cs#L31
-
 ## 1/2 Proof it's impossible - NetCore 
+Direct link to code snippet on the github: https://github.com/AvgustPol/SerilogToDataDog/blob/master/ConsoleApp-NetCore/Program.cs#L31  
 
 ![Proof - NetFramework - LoggerConfiguration doesn't have url parameter named 'url'](https://github.com/AvgustPol/SerilogToDataDog/blob/master/img/%5B%20NetCore%20%5D%20LoggerConfiguration%20doesn't%20have%20url%20parameter%20named%20'url'.png?raw=true)
 
 ## 2/2 Proof it's impossible - NetFramework
 
+Direct link to code snippet on the github: https://github.com/AvgustPol/SerilogToDataDog/blob/master/ConsoleApp-NetFramework/Program.cs#L31
+
 ![Proof - NetFramework - LoggerConfiguration doesn't have url parameter named 'url'](https://github.com/AvgustPol/SerilogToDataDog/blob/master/img/%5B%20NetFramework%20%5D%20LoggerConfiguration%20doesn't%20have%20url%20parameter%20named%20'url'.png?raw=true)
+
+
+
+
+
+
+
+
+
+
 
 --- 
 # Issue 2 - Selflog is not working  
@@ -42,10 +47,10 @@ There are ZERO debug self logs from serilog.  Logs were created in the local fil
 
 Code: 
 
-NetCore
+[NetCore] Direct link to code snippet on the github  
 https://github.com/AvgustPol/SerilogToDataDog/blob/master/ConsoleApp-NetCore/Program.cs#L43
 
-NetFramework
+[NetFramework] Direct link to code snippet on the github  
 https://github.com/AvgustPol/SerilogToDataDog/blob/master/ConsoleApp-NetFramework/Program.cs#L43
 
 ## Code
@@ -127,6 +132,36 @@ The program '[16376] ConsoleApp-NetCore.exe' has exited with code 0 (0x0).
 ## [ Proof 2/2 - NetFramework ] with File sink 
 
 Exact same result as NetCore - logs were created in the file, but **SerilogDebug.txt** is empty 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ### Issue 3 - serilog is not sending logs to the datadog
