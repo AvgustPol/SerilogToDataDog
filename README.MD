@@ -2,14 +2,16 @@
 
 This solution was created to demonstrate issue with serilog agentless sending logs to the DataDog 
 
-⚠ WARNING Important: we are using agentless logging, which means we don't have any installed agents - we are using Serilog to send logs from our application to directly the 
+⚠ WARNING 
+Important: we are using agentless logging, which means we don't have any installed agents - we are using Serilog to send logs from our application to directly the 
 Datadog, and avoiding installing agents on our machines
 
 ## Table of contents
 
+⚠ ⚠ ⚠ ⚠ ⚠ 
 Direct link to core problem : [Agentless logging is not working](#issue-3---serilog-c-code-not-the-agent-is-not-sending-logs-to-the-datadog)  
 
-- [Projects description]
+- Projects description 
   * [.Net CORE](#consoleapp-netcore-net-core-31)
   * [.Net Framework](#consoleapp-netframework-net-framework-45)
 - [Issue 1 - LoggerConfiguration doesn't have url parameter named 'url'](#issue-1---loggerconfiguration-doesnt-have-url-parameter-named-url)
