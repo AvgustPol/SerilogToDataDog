@@ -10,8 +10,8 @@ Datadog, and avoiding installing agents on our machines
 Direct link to core problem : [Agentless logging is not working](#issue-3---serilog-c-code-not-the-agent-is-not-sending-logs-to-the-datadog)  
 
 - [Projects description]
-  * [.Net CORE](#sub-heading)
-  * [.Net Framework]()
+  * [.Net CORE](#consoleapp-netcore-net-core-31)
+  * [.Net Framework](#consoleapp-netframework-net-framework-45)
 - [Issue 1 - LoggerConfiguration doesn't have url parameter named 'url'](#issue-1---loggerconfiguration-doesnt-have-url-parameter-named-url)
 - [Issue 2 - Selflog is not working](#issue-2---selflog-is-not-working)
 - [Issue 3 - serilog C# code (NOT the agent.) is not sending logs to the datadog](#issue-3---serilog-c-code-not-the-agent-is-not-sending-logs-to-the-datadog)
