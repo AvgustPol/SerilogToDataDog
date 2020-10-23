@@ -45,7 +45,7 @@
       <HintPath>..\packages\Serilog.Enrichers.Thread.3.1.0\lib\net45\Serilog.Enrichers.Thread.dll</HintPath>
     </Reference>
     <Reference Include="Serilog.Sinks.Datadog.Logs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a460801c7b1366bb, processorArchitecture=MSIL">
-      <HintPath>..\packages\Serilog.Sinks.Datadog.Logs.0.3.3\lib\net45\Serilog.Sinks.Datadog.Logs.dll</HintPath>
+      <HintPath>..\packages\Serilog.Sinks.Datadog.Logs.0.3.0\lib\net45\Serilog.Sinks.Datadog.Logs.dll</HintPath>
     </Reference>
     <Reference Include="Serilog.Sinks.File, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
       <HintPath>..\packages\Serilog.Sinks.File.4.1.0\lib\net45\Serilog.Sinks.File.dll</HintPath>
